@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional Portfolio Design System - Dark Theme
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root,
+  .dark {
+    /* Professional Dark Portfolio Theme */
+    --background: 222 84% 4.5%;
+    --foreground: 210 40% 98%;
+    
+    --card: 222 84% 7%;
+    --card-foreground: 210 40% 95%;
+    
+    --popover: 222 84% 6%;
+    --popover-foreground: 210 40% 98%;
+    
+    /* Cyan-blue accent for professional tech look */
+    --primary: 189 94% 60%;
+    --primary-foreground: 222 84% 4.5%;
+    
+    /* Purple accent for contrast */
+    --secondary: 270 95% 80%;
+    --secondary-foreground: 222 84% 4.5%;
+    
+    --muted: 217 32% 15%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 217 32% 17%;
+    --accent-foreground: 210 40% 95%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 217 32% 17%;
+    --input: 217 32% 15%;
+    --ring: 189 94% 60%;
+    
+    --radius: 0.75rem;
+    
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(189 94% 60%), hsl(270 95% 80%));
+    --gradient-subtle: linear-gradient(180deg, hsl(222 84% 7%), hsl(217 32% 15%));
+    --gradient-hero: linear-gradient(135deg, hsl(222 84% 4.5%) 0%, hsl(217 32% 17%) 50%, hsl(189 94% 20%) 100%);
+    
+    /* Professional shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(189 94% 60% / 0.3);
+    --shadow-glow: 0 0 40px hsl(189 94% 60% / 0.2);
+    --shadow-card: 0 4px 20px -2px hsl(222 84% 4.5% / 0.5);
+    
+    /* Typography */
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-logo: 'Orbitron', monospace;
+    
+    /* Animation timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222 84% 4.5%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 84% 4.5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 4.5%;
+
+    --primary: 189 94% 43%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 70% 55%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 84% 4.5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 189 94% 43%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(189 94% 43%), hsl(270 70% 55%));
+    --gradient-subtle: linear-gradient(180deg, hsl(210 40% 98%), hsl(210 40% 96%));
+    --gradient-hero: linear-gradient(135deg, hsl(210 40% 98%) 0%, hsl(210 40% 96%) 50%, hsl(189 94% 90%) 100%);
+
+    --shadow-elegant: 0 10px 30px -10px hsl(189 94% 43% / 0.2);
+    --shadow-glow: 0 0 40px hsl(189 94% 43% / 0.15);
+    --shadow-card: 0 4px 20px -2px hsl(222 84% 4.5% / 0.1);
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      cursor: none;
+    }
+
+    body,
+    a,
+    button,
+    input,
+    textarea,
+    select {
+      cursor: none !important;
+    }
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  /* Enhanced responsive typography */
+  .text-hero-name {
+    font-size: clamp(2.25rem, 7vw, 7rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+  
+  .text-header-name {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.2;
+  }
+  
+  /* Mobile-first responsive headings */
+  .text-responsive-xl {
+    font-size: clamp(1.25rem, 4vw, 1.875rem);
+  }
+  
+  .text-responsive-2xl {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+  }
+  
+  .text-responsive-3xl {
+    font-size: clamp(1.875rem, 6vw, 3rem);
+  }
+  
+  .text-responsive-4xl {
+    font-size: clamp(2.25rem, 7vw, 3.75rem);
+  }
+  
+  .text-responsive-5xl {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+  }
+  
+  /* Mobile improvements */
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+
+  /* Ensure name stays on one line on larger screens */
+  @media (min-width: 1280px) {
+    .text-hero-name {
+      font-size: clamp(4rem, 5vw, 6.5rem);
+    }
+  }
+
+  /* Extra large screens */
+  @media (min-width: 1536px) {
+    .text-hero-name {
+      font-size: clamp(5rem, 5.5vw, 7rem);
+    }
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hover-glow:hover {
+    box-shadow:
+      0 0 20px rgba(6, 182, 212, 0.5),
+      0 0 40px rgba(139, 92, 246, 0.3);
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
